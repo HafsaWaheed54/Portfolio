@@ -1,0 +1,22 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mindex f5c08f2..7416d1e 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -198,7 +198,7 @@[m
+                     <div class="brand-logo">[m
+                         <h3>SHE STYLES</h3>[m
+                     </div>[m
+[31m-                    <p>Western wear brand</p>[m
+[32m+[m[32m                    <p>eastern wear brand</p>[m
+                 </div>[m
+                 <div class="brand-item">[m
+                     <div class="brand-logo">[m
+[36m@@ -313,7 +313,7 @@[m
+             </div>[m
+             <div class="footer-bottom">[m
+                 <p>&copy; 2025 Fashion Influencer. All rights reserved.</p>[m
+[31m-            </div>[m
+[32m+[m[32m            </div>l[m
+         </div>[m
+     </footer>[m
+ [m
