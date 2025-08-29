@@ -3,7 +3,17 @@ AOS.init({
     duration: 1000,
     easing: 'ease-in-out',
     once: true,
-    mirror: false
+    offset: 100
+});
+
+// Loading Screen
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.querySelector('.loading-screen');
+    
+    // Hide loading screen after 2 seconds
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+    }, 2000);
 });
 
 // Mobile Navigation Toggle
@@ -21,7 +31,7 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
-// Smooth scrolling for navigation links
+// Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -35,7 +45,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar Background Change on Scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
@@ -46,6 +56,51 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = 'none';
     }
 });
+
+// Animated Counter for Stats
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    function updateCounter() {
+        start += increment;
+        if (start < target) {
+            element.textContent = Math.floor(start);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    updateCounter();
+}
+
+// Intersection Observer for Counter Animation
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.stat-number[data-target]');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                if (!stat.classList.contains('animated')) {
+                    stat.classList.add('animated');
+                    animateCounter(stat, target);
+                }
+            });
+        }
+    });
+}, observerOptions);
+
+// Observe hero section for counter animation
+const heroSection = document.querySelector('.hero');
+if (heroSection) {
+    observer.observe(heroSection);
+}
 
 // Portfolio Filtering
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -58,12 +113,14 @@ filterButtons.forEach(button => {
         // Add active class to clicked button
         button.classList.add('active');
         
-        const filterValue = button.getAttribute('data-filter');
+        const filter = button.getAttribute('data-filter');
         
         portfolioItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            const category = item.getAttribute('data-category');
+            
+            if (filter === 'all' || category === filter) {
                 item.style.display = 'block';
-                item.style.animation = 'fadeIn 0.5s ease-in-out';
+                item.style.animation = 'fadeInUp 0.6s ease forwards';
             } else {
                 item.style.display = 'none';
             }
@@ -71,66 +128,75 @@ filterButtons.forEach(button => {
     });
 });
 
-// Contact Form Handling
-const contactForm = document.getElementById('contactForm');
+// Add fadeInUp animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(style);
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-    
-    // Simple validation
-    if (!name || !email || !subject || !message) {
-        showNotification('Please fill in all fields', 'error');
-        return;
+// Parallax Effect for Hero Section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroBackground = document.querySelector('.hero-background');
+    if (heroBackground) {
+        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
-    
-    if (!isValidEmail(email)) {
-        showNotification('Please enter a valid email address', 'error');
-        return;
-    }
-    
-    // Simulate form submission
-    const submitButton = this.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        this.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    }, 2000);
 });
 
-// Email validation function
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+// Contact Form Handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual form handling)
+        setTimeout(() => {
+            // Show success message
+            showNotification('Message sent successfully! I\'ll get back to you within 24 hours.', 'success');
+            
+            // Reset form
+            this.reset();
+            
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
 }
 
-// Notification system
-function showNotification(message, type) {
+// Notification System
+function showNotification(message, type = 'info') {
     // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
     
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
         <div class="notification-content">
-            <span class="notification-message">${message}</span>
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
+            <span>${message}</span>
             <button class="notification-close">&times;</button>
         </div>
     `;
@@ -140,15 +206,15 @@ function showNotification(message, type) {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+        background: ${type === 'success' ? '#4CAF50' : '#2196F3'};
         color: white;
-        padding: 15px 20px;
-        border-radius: 5px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         z-index: 10000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
-        max-width: 300px;
+        max-width: 400px;
     `;
     
     // Add to page
@@ -160,8 +226,8 @@ function showNotification(message, type) {
     }, 100);
     
     // Close button functionality
-    const closeButton = notification.querySelector('.notification-close');
-    closeButton.addEventListener('click', () => {
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => notification.remove(), 300);
     });
@@ -175,151 +241,8 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero-content');
-    
-    if (hero && heroContent) {
-        const rate = scrolled * -0.5;
-        heroContent.style.transform = `translateY(${rate}px)`;
-    }
-});
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Observe all elements with fade-in class
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-});
-
-// Counter animation for stats
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target + '+';
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start) + '+';
-        }
-    }, 16);
-}
-
-// Trigger counter animation when stats section is visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statNumbers = entry.target.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const target = parseInt(stat.textContent);
-                animateCounter(stat, target);
-            });
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const statsSection = document.querySelector('.hero-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
-
-// Image placeholder click handler for easy image replacement
-document.querySelectorAll('.image-placeholder').forEach(placeholder => {
-    placeholder.addEventListener('click', function() {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        
-        input.onchange = function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    placeholder.style.backgroundImage = `url(${e.target.result})`;
-                    placeholder.style.backgroundSize = 'cover';
-                    placeholder.style.backgroundPosition = 'center';
-                    placeholder.innerHTML = '';
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        
-        input.click();
-    });
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
-// Add CSS for loading animation
-const loadingStyle = document.createElement('style');
-loadingStyle.textContent = `
-    body:not(.loaded) {
-        overflow: hidden;
-    }
-    
-    body:not(.loaded)::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    body:not(.loaded)::after {
-        content: 'Loading...';
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.5rem;
-        color: #d4af37;
-        z-index: 10000;
-        font-weight: 600;
-    }
-    
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-
-document.head.appendChild(loadingStyle);
-
-// Add hover effects for portfolio items
-document.querySelectorAll('.portfolio-item').forEach(item => {
+// Portfolio Item Hover Effects
+portfolioItems.forEach(item => {
     item.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
@@ -329,7 +252,58 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
     });
 });
 
-// Add typing effect for hero title
+// Service Card Interactions
+const serviceCards = document.querySelectorAll('.service-card');
+serviceCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Brand Item Interactions
+const brandItems = document.querySelectorAll('.brand-item');
+brandItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Scroll Progress Indicator
+function createScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #d4af37, #f4e4bc);
+        z-index: 10001;
+        transition: width 0.1s ease;
+    `;
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// Initialize scroll progress
+createScrollProgress();
+
+// Typing Effect for Hero Title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
@@ -347,33 +321,158 @@ function typeWriter(element, text, speed = 100) {
 
 // Initialize typing effect when page loads
 window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
+    const heroTitle = document.querySelector('.hero-title .title-line');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
         typeWriter(heroTitle, originalText, 150);
     }
 });
 
-// Add scroll progress indicator
-const progressBar = document.createElement('div');
-progressBar.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, #d4af37, #b8941f);
-    z-index: 10001;
-    transition: width 0.3s ease;
+// Image Lazy Loading
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading
+lazyLoadImages();
+
+// Smooth Reveal Animation for Sections
+function revealOnScroll() {
+    const sections = document.querySelectorAll('section');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+}
+
+// Initialize reveal animations
+revealOnScroll();
+
+// Add CSS for reveal animation
+const revealStyle = document.createElement('style');
+revealStyle.textContent = `
+    section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+    }
+    
+    section.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .hero {
+        opacity: 1;
+        transform: none;
+    }
 `;
+document.head.appendChild(revealStyle);
 
-document.body.appendChild(progressBar);
+// Cursor Trail Effect (Optional Luxury Feature)
+function createCursorTrail() {
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    trail.style.cssText = `
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: all 0.1s ease;
+        opacity: 0;
+    `;
+    document.body.appendChild(trail);
+    
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        trail.style.opacity = '1';
+    });
+    
+    function animateTrail() {
+        trailX += (mouseX - trailX) * 0.1;
+        trailY += (mouseY - trailY) * 0.1;
+        
+        trail.style.left = trailX - 10 + 'px';
+        trail.style.top = trailY - 10 + 'px';
+        
+        requestAnimationFrame(animateTrail);
+    }
+    
+    animateTrail();
+    
+    // Hide trail when mouse leaves window
+    document.addEventListener('mouseleave', () => {
+        trail.style.opacity = '0';
+    });
+}
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-    const docHeight = document.body.offsetHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    progressBar.style.width = scrollPercent + '%';
+// Initialize cursor trail (uncomment to enable)
+// createCursorTrail();
+
+// Performance Optimization: Throttle scroll events
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Apply throttling to scroll events
+window.addEventListener('scroll', throttle(() => {
+    // Scroll-based animations here
+}, 16));
+
+// Initialize all features when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Luxury Fashion Portfolio Loaded Successfully');
+    
+    // Add loading animation to stats
+    const stats = document.querySelectorAll('.stat');
+    stats.forEach((stat, index) => {
+        stat.style.animationDelay = `${index * 0.1}s`;
+    });
 });
 
-console.log('Fashion Influencer Portfolio loaded successfully! 🎨✨');
+// Export functions for potential external use
+window.PortfolioApp = {
+    showNotification,
+    animateCounter,
+    typeWriter
+};

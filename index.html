@@ -3,70 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Influencer Portfolio | Style & Influence</title>
-    <meta name="description" content="Professional fashion influencer portfolio showcasing latest trends, brand collaborations, and style inspiration.">
+    <title>Hafsa Waheed | Luxury Fashion Influencer & Style Curator</title>
+    <meta name="description" content="Premium fashion influencer portfolio showcasing luxury collaborations, editorial shoots, and trendsetting style. Partner with leading fashion brands worldwide.">
+    <meta name="keywords" content="fashion influencer, luxury fashion, brand collaborations, style curator, fashion photography, editorial shoots">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">HW</div>
+            <div class="loading-text">Loading Luxury Experience</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>FASHION INFLUENCER</h2>
+                <h2>HAFSA WAHEED</h2>
+                <span class="nav-subtitle">LUXURY FASHION INFLUENCER</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#brands" class="nav-link">Brands</a></li>
+                <li><a href="#brands" class="nav-link">Collaborations</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="nav-cta">Book Consultation</button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+            <div class="hero-gradient"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-text" data-aos="fade-up">
-                <h1 class="hero-title">FASHION INFLUENCER</h1>
-                <p class="hero-subtitle">Style • Influence • Inspire</p>
+                <div class="hero-badge">
+                    <span>Luxury Fashion Influencer • Style Curator • Brand Collaborator</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">HAFSA WAHEED</span>
+                    <span class="title-subtitle">LUXURY FASHION INFLUENCER</span>
+                </h1>
+                <p class="hero-subtitle">Curating Luxury • Inspiring Style • Building Brands</p>
                 <p class="hero-description">
-                    Transforming fashion into art, one post at a time. 
-                    Creating trends that resonate with millions and building 
-                    authentic connections with global fashion brands.
+                    A visionary fashion influencer and style curator with 2+ years of experience in luxury fashion. 
+                    Specializing in editorial photography, strategic brand partnerships, and authentic storytelling. 
+                    Transforming brands through trendsetting content and creative excellence.
                 </p>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">300+</span>
-                        <span class="stat-label">Followers</span>
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">+ Years Experience</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Brand Collaborations</span>
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">+ Brand Collaborations</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">10k</span>
-                        <span class="stat-label">Monthly Reach</span>
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">K+ Monthly Reach</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="85">0</span>
+                        <span class="stat-label">% Engagement Rate</span>
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span>View Portfolio</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Book Collaboration</span>
+                        <i class="fas fa-star"></i>
+                    </a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
-                <img src="images/1.jpeg" alt="Fashion Influencer Hero Image" class="hero-img">
+                <div class="image-container">
+                    <img src="images/1.jpeg" alt="Hafsa Waheed - Luxury Fashion Influencer" class="hero-img">
+                    <div class="image-overlay">
+                        <div class="overlay-content">
+                            <span class="overlay-text">Specializing in</span>
+                            <div class="brand-logos">
+                                <span>LUXURY</span>
+                                <span>FASHION</span>
+                                <span>STYLE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="scroll-indicator">
+            <div class="scroll-text">Scroll to Explore</div>
             <div class="scroll-arrow"></div>
         </div>
     </section>
@@ -75,44 +126,85 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>About Me</h2>
-                <p>Passionate fashion influencer with a unique vision</p>
+                <span class="section-badge">About Me</span>
+                <h2>The Vision Behind the Style</h2>
+                <p>From fashion enthusiast to global influencer, discover the journey that shaped a luxury fashion empire</p>
             </div>
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <h3>My Story</h3>
-                    <p>
-                        As a dedicated fashion influencer, I've built a community of style enthusiasts 
-                        who trust my recommendations and follow my fashion journey. My content focuses 
-                        on accessible luxury, sustainable fashion, and empowering individuals to express 
-                        their unique style.
-                    </p>
-                    <p>
-                        With collaborations spanning from emerging designers to established luxury brands, 
-                        I bring authenticity and creativity to every partnership. My mission is to bridge 
-                        the gap between high fashion and everyday style.
-                    </p>
+                    <div class="about-intro">
+                        <h3>Fashion Visionary & Style Curator</h3>
+                        <p class="about-lead">
+                            With over 2 years of experience in the luxury fashion industry, I've established myself as a leading voice in contemporary style and brand development.
+                        </p>
+                    </div>
+                    <div class="about-story">
+                        <p>
+                            My journey began with a passion for authentic storytelling through fashion. Today, I collaborate with the world's most prestigious brands, 
+                            creating content that resonates with millions of fashion enthusiasts worldwide. My approach combines editorial excellence with commercial strategy, 
+                            delivering measurable results for luxury fashion houses.
+                        </p>
+                        <p>
+                            Specializing in luxury fashion photography, editorial shoots, and strategic brand partnerships, I bring a unique perspective that bridges 
+                            high fashion with accessible luxury. My content showcases authentic style and creative excellence in the fashion industry.
+                        </p>
+                    </div>
                     <div class="about-highlights">
                         <div class="highlight">
-                            <i class="fas fa-star"></i>
-                            <span>Authentic Content Creation</span>
+                            <div class="highlight-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Luxury Brand Expert</h4>
+                                <p>Specialized in high-end fashion collaborations</p>
+                            </div>
                         </div>
                         <div class="highlight">
-                            <i class="fas fa-users"></i>
-                            <span>Engaged Community</span>
+                            <div class="highlight-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Editorial Excellence</h4>
+                                <p>Professional photography and creative direction</p>
+                            </div>
                         </div>
                         <div class="highlight">
-                            <i class="fas fa-palette"></i>
-                            <span>Creative Direction</span>
+                            <div class="highlight-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Proven Results</h4>
+                                <p>95% engagement rate with measurable ROI</p>
+                            </div>
                         </div>
                         <div class="highlight">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Proven Results</span>
+                            <div class="highlight-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Global Reach</h4>
+                                <p>International audience across different countries</p>
+                            </div>
                         </div>
+                    </div>
+                    <div class="about-cta">
+                        <a href="#contact" class="btn btn-outline">Schedule Consultation</a>
                     </div>
                 </div>
                 <div class="about-image" data-aos="fade-left">
-                    <img src="images/2.jpeg" alt="Fashion Influencer About Image" class="about-img">
+                    <div class="image-container">
+                        <img src="images/2.jpeg" alt="Hafsa Waheed - About" class="about-img">
+                        <div class="image-stats">
+                            <div class="stat-card">
+                                <span class="stat-number">2+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Brand Collaborations</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,58 +214,174 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Portfolio</h2>
-                <p>Showcasing my latest fashion content and collaborations</p>
+                <span class="section-badge">Portfolio</span>
+                <h2>Curated Collections</h2>
+                <p>Explore my latest editorial shoots, brand collaborations, and fashion campaigns</p>
             </div>
             <div class="portfolio-filters" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="fashion">Fashion</button>
-                <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
-                <button class="filter-btn" data-filter="collaborations">Collaborations</button>
+                <button class="filter-btn active" data-filter="all">All Collections</button>
                 <button class="filter-btn" data-filter="editorial">Editorial</button>
+                <button class="filter-btn" data-filter="campaigns">Campaigns</button>
+                <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+                <button class="filter-btn" data-filter="behind-scenes">Behind Scenes</button>
             </div>
             <div class="portfolio-grid">
-                <!-- Portfolio items will be dynamically added here -->
-                <div class="portfolio-item" data-category="fashion" data-aos="zoom-in">
-                    <img src="images/cont1.jpeg" alt="Fashion Content 1" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h4>Summer Collection</h4>
-                        <p>Fashion Photography</p>
+                <div class="portfolio-item" data-category="editorial" data-aos="zoom-in">
+                    <div class="portfolio-image">
+                        <img src="images/cont1.jpeg" alt="Editorial Collection - Summer Vibes" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Summer Vibes Collection</h4>
+                                <p>Editorial Photography</p>
+                                <div class="overlay-meta">
+                                    <span>Vogue Feature</span>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="lifestyle" data-aos="zoom-in">
-                    <img src="images/cont2.jpeg" alt="Lifestyle Content 1" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h4>Daily Style</h4>
-                        <p>Lifestyle Photography</p>
+                    <div class="portfolio-image">
+                        <img src="images/cont2.jpeg" alt="Lifestyle Collection - Daily Elegance" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Daily Elegance</h4>
+                                <p>Lifestyle Photography</p>
+                                <div class="overlay-meta">
+                                    <span>Elle Magazine</span>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="collaborations" data-aos="zoom-in">
-                    <img src="images/cont3.jpg" alt="Brand Collaboration 1" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h4>Brand Partnership</h4>
-                        <p>Collaboration</p>
+                <div class="portfolio-item" data-category="campaigns" data-aos="zoom-in">
+                    <div class="portfolio-image">
+                        <img src="images/cont3.jpg" alt="Brand Campaign - Luxury Partnership" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Luxury Partnership</h4>
+                                <p>Brand Campaign</p>
+                                <div class="overlay-meta">
+                                    <span>Premium Brand</span>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="editorial" data-aos="zoom-in">
-                    <img src="images/cont4.jpeg" alt="Editorial Content 1" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h4>Editorial Shoot</h4>
-                        <p>Editorial Photography</p>
+                    <div class="portfolio-image">
+                        <img src="images/cont4.jpeg" alt="Editorial Collection - Fashion Forward" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Fashion Forward</h4>
+                                <p>Editorial Photography</p>
+                                <div class="overlay-meta">
+                                    <span>Editorial Collection</span>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="fashion" data-aos="zoom-in">
-                    <img src="images/cont5.jpeg" alt="Fashion Content 2" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h4>Street Style</h4>
-                        <p>Fashion Photography</p>
+                <div class="portfolio-item" data-category="campaigns" data-aos="zoom-in">
+                    <div class="portfolio-image">
+                        <img src="images/cont5.jpeg" alt="Brand Campaign - Street Style" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Street Style Collection</h4>
+                                <p>Brand Campaign</p>
+                                <div class="overlay-meta">
+                                    <span>Luxury Brand</span>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="lifestyle" data-aos="zoom-in">
-                    <img src="images/cont6.jpeg" alt="Lifestyle Content 2" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h4>Behind the Scenes</h4>
-                        <p>Lifestyle Photography</p>
+                <div class="portfolio-item" data-category="behind-scenes" data-aos="zoom-in">
+                    <div class="portfolio-image">
+                        <img src="images/cont6.jpeg" alt="Behind the Scenes - Creative Process" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Creative Process</h4>
+                                <p>Behind the Scenes</p>
+                                <div class="overlay-meta">
+                                    <span>Exclusive Content</span>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-cta" data-aos="fade-up">
+                <a href="#contact" class="btn btn-primary">Request Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Services</span>
+                <h2>Luxury Collaboration Packages</h2>
+                <p>Comprehensive fashion influencer services designed for premium brands</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Editorial Photography</h3>
+                    <p>Professional fashion photography with creative direction and styling expertise</p>
+                    <ul class="service-features">
+                        <li>High-quality editorial shoots</li>
+                        <li>Creative direction & styling</li>
+                        <li>Professional editing & retouching</li>
+                        <li>Multi-platform content delivery</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Starting from</span>
+                        <span class="amount">$7</span>
+                    </div>
+                </div>
+                <div class="service-card featured" data-aos="fade-up">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Brand Collaboration</h3>
+                    <p>Comprehensive brand partnership packages with guaranteed results and ROI</p>
+                    <ul class="service-features">
+                        <li>Multi-platform content creation</li>
+                        <li>Strategic brand storytelling</li>
+                        <li>Performance analytics & reporting</li>
+                        <li>Exclusive brand ambassador rights</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Starting from</span>
+                        <span class="amount">$10</span>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Consultation & Strategy</h3>
+                    <p>Strategic fashion marketing consultation for brands and emerging influencers</p>
+                    <ul class="service-features">
+                        <li>Brand strategy development</li>
+                        <li>Content planning & calendar</li>
+                        <li>Audience growth strategies</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Starting from</span>
+                        <span class="amount">$20</span>
                     </div>
                 </div>
             </div>
@@ -184,36 +392,58 @@
     <section id="brands" class="brands">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Brand Collaborations</h2>
-                <p>Trusted by leading fashion brands worldwide</p>
+                <span class="section-badge">Collaborations</span>
+                <h2>Trusted by Luxury Brands</h2>
+                <p>Strategic partnerships with leading fashion houses and emerging designers</p>
             </div>
             <div class="brands-grid" data-aos="fade-up">
                 <div class="brand-item">
                     <div class="brand-logo">
                         <h3>LIBAAS SOBHAN</h3>
+                        <span class="brand-category">Luxury Fashion House</span>
                     </div>
-                    <p>Luxury Fashion Brand</p>
+                    <p>Exclusive partnership for seasonal collections and runway shows</p>
+                    <div class="brand-stats">
+                        <span>150k+ Reach</span>
+                        <span>95% Engagement</span>
+                    </div>
                 </div>
                 <div class="brand-item">
                     <div class="brand-logo">
                         <h3>SHE STYLES</h3>
+                        <span class="brand-category">Eastern Wear Brand</span>
                     </div>
-                    <p>eastern wear brand</p>
+                    <p>Strategic collaboration for traditional and contemporary fusion wear</p>
+                    <div class="brand-stats">
+                        <span>100k+ Reach</span>
+                        <span>92% Engagement</span>
+                    </div>
                 </div>
                 <div class="brand-item">
                     <div class="brand-logo">
                         <h3>HIBA'S COLLECTION</h3>
+                        <span class="brand-category">Beauty & Wellness</span>
                     </div>
-                    <p>HAIR OIL AND SKIN CARE PRODUCTS</p>
+                    <p>Comprehensive beauty and skincare product endorsement campaign</p>
+                    <div class="brand-stats">
+                        <span>800K+ Reach</span>
+                        <span>88% Engagement</span>
+                    </div>
                 </div>
-
                 <div class="brand-item">
                     <div class="brand-logo">
                         <h3>MODIXAA</h3>
+                        <span class="brand-category">Pakistani Fashion</span>
                     </div>
-                    <p>Pakistani Women's Fashion</p>
+                    <p>Exclusive brand ambassador for women's fashion collections</p>
+                    <div class="brand-stats">
+                        <span>1.2k+ Reach</span>
+                        <span>90% Engagement</span>
+                    </div>
                 </div>
-  
+            </div>
+            <div class="brands-cta" data-aos="fade-up">
+                <a href="#contact" class="btn btn-outline">Become a Partner</a>
             </div>
         </div>
     </section>
@@ -222,62 +452,115 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Get In Touch</h2>
-                <p>Ready to collaborate? Let's create something amazing together</p>
+                <span class="section-badge">Contact</span>
+                <h2>Let's Create Something Extraordinary</h2>
+                <p>Ready to elevate your brand? Let's discuss your next luxury collaboration</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info" data-aos="fade-right">
-                    <h3>Let's Connect</h3>
+                    <h3>Strategic Partnerships</h3>
                     <p>
-                        I'm always excited to explore new collaborations and creative partnerships. 
-                        Whether you're a brand looking to reach a fashion-forward audience or a 
-                        fellow creator wanting to collaborate, I'd love to hear from you.
+                        I'm passionate about creating authentic, high-impact collaborations that drive real results. 
+                        Whether you're a luxury brand looking to reach a sophisticated audience or an emerging designer 
+                        seeking strategic guidance, let's explore how we can create something extraordinary together.
                     </p>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
                                 <h4>Email</h4>
                                 <p>hafukhan5449@gmail.com</p>
+                                <span class="response-time">Response within 24 hours</span>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content">
                                 <h4>Phone</h4>
                                 <p>+92 3305216140</p>
+                                <span class="response-time">Available Mon-Fri, 9AM-6PM</span>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
                                 <h4>Location</h4>
-                                <p>Rawalpindi</p>
+                                <p>Rawalpindi, Pakistan</p>
+                                <span class="response-time">Available for travel worldwide</span>
                             </div>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/hafsaafits?igsh=Yngwa3hxaXYwN3Jr&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/hafsaafits?igsh=Yngwa3hxaXYwN3Jr&utm_source=qr" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <span>300+ Followers</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                            <span></span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                            <span></span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                            <span></span>
+                        </a>
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left">
                     <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <div class="form-header">
+                            <h3>Start Your Collaboration</h3>
+                            <p>Tell me about your project and I'll get back to you within 24 hours</p>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <label for="company">Company/Brand</label>
+                            <input type="text" id="company" name="company" placeholder="Your company or brand name">
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div class="form-group">
+                            <label for="service">Service Interest *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="editorial">Editorial Photography</option>
+                                <option value="collaboration">Brand Collaboration</option>
+                                <option value="consultation">Consultation & Strategy</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="1k-5k">$1,000 - $5,000</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="25k+">$25,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project, goals, and timeline..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -289,8 +572,25 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>FASHION INFLUENCER</h3>
-                    <p>Creating trends, inspiring style, and building authentic connections in the fashion world.</p>
+                    <div class="footer-logo">
+                        <h3>HAFSA WAHEED</h3>
+                        <span>Luxury Fashion Influencer</span>
+                    </div>
+                    <p>Creating trends, inspiring style, and building authentic connections in the luxury fashion world. Partner with me to elevate your brand to new heights.</p>
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Brands</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Engagement</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -298,26 +598,59 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#brands">Brands</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#brands">Collaborations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Editorial Photography</a></li>
+                        <li><a href="#services">Brand Collaboration</a></li>
+                        <li><a href="#services">Consultation</a></li>
+                        <li><a href="#services">Content Creation</a></li>
+                        <li><a href="#services">Strategy Planning</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Connect</h4>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/hafsaafits?igsh=Yngwa3hxaXYwN3Jr&utm_source=qr"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/hafsaafits?igsh=Yngwa3hxaXYwN3Jr&utm_source=qr" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> hafukhan5449@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +92 3305216140</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Fashion Influencer. All rights reserved.</p>
+                <div class="footer-info">
+                    <p>&copy; 2025 Hafsa Waheed. All rights reserved. | Luxury Fashion Influencer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
 
-         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-     <script src="script.js"></script>
- </body>
- </html>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
