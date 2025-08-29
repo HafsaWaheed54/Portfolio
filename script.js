@@ -96,11 +96,33 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe hero section for counter animation
-const heroSection = document.querySelector('.hero');
-if (heroSection) {
-    observer.observe(heroSection);
-}
+// Observe all sections with stats for counter animation
+const sectionsWithStats = document.querySelectorAll('.hero, .about, .footer');
+sectionsWithStats.forEach(section => {
+    if (section) {
+        observer.observe(section);
+    }
+});
+
+// Also initialize counters immediately for better mobile experience
+document.addEventListener('DOMContentLoaded', function() {
+    const allStatNumbers = document.querySelectorAll('.stat-number[data-target]');
+    allStatNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        if (!stat.classList.contains('animated')) {
+            stat.classList.add('animated');
+            animateCounter(stat, target);
+        }
+    });
+    
+    // Fallback: Set final values after 3 seconds in case animation fails
+    setTimeout(() => {
+        allStatNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            stat.textContent = target;
+        });
+    }, 3000);
+});
 
 // Portfolio Filtering
 const filterButtons = document.querySelectorAll('.filter-btn');
